@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+      <div class="col">
+        <div class="card mt-3" style="width: 18rem">
+          <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to c.name, cocktail_path(c)  %>
+              </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
