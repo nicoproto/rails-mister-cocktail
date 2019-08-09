@@ -1,18 +1,16 @@
 <div class="page-banner">
   <div class="container ">
     <div class="row">
-      <h1 class="text-white">A really catchy phrase...</h1>
+      <h1 class="text-white shadow-text">You look like I could use a drink...</h1>
     </div>
-    <div class="row">
-      <h1 class="text-white">Sooooo catchy...</h1>
-    </div>
+
   </div>
 </div>
 <div class="container">
   <div class="row">
     <% @cocktails.each do |c| %>
       <div class="col d-flex align-items-stretch">
-        <div class="card mt-3 align-items-center" style="width: 18rem">
+        <div class="card mt-3 align-items-center" style="width: 15rem">
           <%= cl_image_tag c.photo, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title">

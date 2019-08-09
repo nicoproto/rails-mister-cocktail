@@ -16,6 +16,8 @@ Dose.destroy_all
 puts "Deleting ingredients"
 Ingredient.destroy_all
 
+doses = ["50 ml", "75 ml", "100 ml", "150 ml", "175 ml", "225 ml", "250 ml"]
+
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 file = open(url).read
@@ -26,19 +28,20 @@ list["drinks"].each do |ing|
   Ingredient.create(name: ingredient)
 end
 
-10.times do
+21.times do
   puts "Starting created!"
   name = Faker::Beer.hop
   cocktail = Cocktail.create(name: name)
   url = "https://source.unsplash.com/random?cocktail"
   puts "Waiting for unsplash to refresh search"
-  sleep(5)
+  sleep(3)
   cocktail.remote_photo_url = url
   cocktail.save
 
   3.times do
     rand_ingredient = Ingredient.all.sample
-    dose = Dose.new( description: "20kg")
+    dose_description = doses.sample
+    dose = Dose.new( description: dose_description)
     dose.ingredient = rand_ingredient
     dose.cocktail = cocktail
     dose.save

@@ -1,13 +1,13 @@
-<div class="container" id="cocktail-list">
+<div class="container mt-3" id="cocktail-list">
+
+  <h3 class="mb-3"><%= @cocktail.name %></h3>
   <div class="row">
+
+
+
     <div class="col">
       <div class="card mb-3">
-        <%= cl_image_tag @cocktail.photo, class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @cocktail.name %></h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
+        <%= cl_image_tag @cocktail.photo, class: "card-img-top img-show" %>
       </div>
     </div>
     <div class="col">
