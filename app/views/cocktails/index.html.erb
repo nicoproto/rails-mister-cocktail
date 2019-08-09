@@ -1,9 +1,19 @@
+<div class="page-banner">
+  <div class="container ">
+    <div class="row">
+      <h1 class="text-white">A really catchy phrase...</h1>
+    </div>
+    <div class="row">
+      <h1 class="text-white">Sooooo catchy...</h1>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <% @cocktails.each do |c| %>
-      <div class="col">
-        <div class="card mt-3" style="width: 18rem">
-          <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="...">
+      <div class="col d-flex align-items-stretch">
+        <div class="card mt-3 align-items-center" style="width: 18rem">
+          <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="drink">
           <div class="card-body">
             <h5 class="card-title">
               <%= link_to c.name, cocktail_path(c)  %>
@@ -14,5 +24,6 @@
     <% end %>
   </div>
 </div>
+
 
 

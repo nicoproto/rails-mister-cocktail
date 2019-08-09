@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="cocktail-list">
   <div class="card mb-3">
     <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="...">
     <div class="card-body">
@@ -17,6 +17,14 @@
           </div>
         </div>
       <% end %>
-      <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary"  %>
+      <!-- ADD NEW DOSE FORM -->
+      <div class="card-body p-0">
+          <h5 class="card-title">Add new dose</h5>
+          <%= simple_form_for [@cocktail, @dose] do |d| %>
+            <%= d.input :description %>
+            <%= d.input :ingredient, collection: @ingredients %>
+            <%= d.submit class: "btn btn-primary" %>
+          <% end %>
+      </div>
     </div>
 </div>

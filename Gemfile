@@ -38,7 +38,8 @@ gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
+gem "select2-rails"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

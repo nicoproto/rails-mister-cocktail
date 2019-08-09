@@ -10,13 +10,12 @@
     <!-- To enable Bootstrap responsiveness  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
   </head>
 
   <body>
-    <nav class="navbar mb-3 bg-light border-button-1">
-      <a class="nav-link active" href="/cocktails">Cocktails List</a>
-      <%= link_to 'Add Cocktail', new_cocktail_path, :class=>"btn btn-outline-primary"  %>
+    <nav class="navbar bg-light border-button-1">
+      <a class="btn text-warning" href="/">Cocktails List</a>
+      <%= link_to 'Add Cocktail', new_cocktail_path, :class=>"btn btn-outline-warning"  %>
     </nav>
     <%= yield %>
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
