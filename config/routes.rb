@@ -7,3 +7,4 @@ Rails.application.routes.draw do
 
   resources :doses, only: [:destroy]
 end
+
