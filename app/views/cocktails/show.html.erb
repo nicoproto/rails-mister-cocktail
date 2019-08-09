@@ -1,30 +1,36 @@
 <div class="container" id="cocktail-list">
-  <div class="card mb-3">
-    <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= @cocktail.name %></h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-    <div class="container">
-      <h5 class="card-title">Ingredients</h5>
-      <% @doses.each do |d| %>
-        <div class="card mb-3">
-          <div class="card-body">
-            <%= d.description %> of <%= d.ingredient.name %>
-            <%= link_to "Delete", dose_path(d) , class: "btn btn-danger", method: :delete, data: {confirm: 'are you sure?'} %>
-          </div>
+  <div class="row">
+    <div class="col">
+      <div class="card mb-3">
+        <%= cl_image_tag @cocktail.photo, class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @cocktail.name %></h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-      <% end %>
-      <!-- ADD NEW DOSE FORM -->
-      <div class="card-body p-0">
-          <h5 class="card-title">Add new dose</h5>
-          <%= simple_form_for [@cocktail, @dose] do |d| %>
-            <%= d.input :description %>
-            <%= d.input :ingredient, collection: @ingredients %>
-            <%= d.submit class: "btn btn-primary" %>
-          <% end %>
       </div>
     </div>
+    <div class="col">
+      <div class="container">
+        <h5 class="card-title">Ingredients</h5>
+        <% @doses.each do |d| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <%= d.description %> of <%= d.ingredient.name %>
+              <%= link_to "", dose_path(d) , class: "far fa-trash-alt", method: :delete, data: {confirm: 'are you sure?'} %>
+            </div>
+          </div>
+        <% end %>
+        <!-- ADD NEW DOSE FORM -->
+        <div class="card-body p-0">
+            <h5 class="card-title">Add new dose</h5>
+            <%= simple_form_for [@cocktail, @dose] do |d| %>
+              <%= d.input :description %>
+              <%= d.input :ingredient, collection: @ingredients %>
+              <%= d.submit class: "btn btn-primary" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

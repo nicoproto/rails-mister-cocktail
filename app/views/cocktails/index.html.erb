@@ -13,7 +13,7 @@
     <% @cocktails.each do |c| %>
       <div class="col d-flex align-items-stretch">
         <div class="card mt-3 align-items-center" style="width: 18rem">
-          <img src="https://source.unsplash.com/random?drink" class="card-img-top" alt="drink">
+          <%= cl_image_tag c.photo, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title">
               <%= link_to c.name, cocktail_path(c)  %>

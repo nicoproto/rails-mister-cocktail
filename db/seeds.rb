@@ -9,9 +9,11 @@ require 'open-uri'
 require 'json'
 
 puts "Seeding started"
-puts "Cleaning ingredients list"
+puts "Deleting cocktails"
 Cocktail.destroy_all
+puts "Deleting doses"
 Dose.destroy_all
+puts "Deleting ingredients"
 Ingredient.destroy_all
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
@@ -24,11 +26,15 @@ list["drinks"].each do |ing|
   Ingredient.create(name: ingredient)
 end
 
-puts "Seeding finished, #{list["drinks"].count} ingredients added."
-
 10.times do
+  puts "Starting created!"
   name = Faker::Beer.hop
   cocktail = Cocktail.create(name: name)
+  url = "https://source.unsplash.com/random?cocktail"
+  puts "Waiting for unsplash to refresh search"
+  sleep(5)
+  cocktail.remote_photo_url = url
+  cocktail.save
 
   3.times do
     rand_ingredient = Ingredient.all.sample
@@ -37,4 +43,10 @@ puts "Seeding finished, #{list["drinks"].count} ingredients added."
     dose.cocktail = cocktail
     dose.save
   end
+  puts "Drink created!"
 end
+
+puts "Seeding finished!"
+puts "#{Ingredient.all.count} ingredients added."
+puts "#{Dose.all.count} doses added."
+puts "#{Cocktail.all.count} drinks added."
